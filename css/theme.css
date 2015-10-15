@@ -1,0 +1,406 @@
+
+/* Sections
+==================================== 
+1. Main
+2. App => Explorer
+
+==================================== 
+
+*/
+
+/* SECTION: 1. Main 
+============================================
+*/
+
+body{
+    padding: 0px;
+    margin: 0px;
+    background-color: white;
+    overflow: hidden;
+    font-family: Tahoma,Verdana,Segoe,sans-serif; 
+    -moz-user-select: none; 
+    -khtml-user-select: none; 
+    -webkit-user-select: none; 
+    -o-user-select: none; 
+}
+
+#viewport{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    padding: 0px;
+    margin: 0px;
+}
+
+.desktopwallpaper{
+    background:-webkit-radial-gradient(bottom,circle,#FACF0C,#4BB648);
+    background:-moz-radial-gradient(bottom,circle,#FACF0C,#4BB648);
+    background:-ms-radial-gradient(bottom,circle,#FACF0C,#4BB648);
+    background:-o-radial-gradient(bottom,circle,#FACF0C,#4BB648);
+    background:radial-gradient(bottom,circle,#FACF0C,#4BB648);
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.dialogpanel{
+    background-color: #eae5d8;
+    pointer-events: initial;
+}
+
+.taskbar{
+    width: 100%;
+    height: 50px;
+    z-index: 1;
+    bottom: 0px;
+    position: absolute;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.taskbaritem{
+    background-color: lightgray;
+    position: relative;
+    width: auto;
+    text-align: center;
+    min-width: 60px;
+    height: auto;
+    display: inline-block;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px outset darkgray;
+    cursor: pointer;
+    font-size: 14px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 6px;
+    vertical-align: middle;
+    top: -5px;
+}
+
+.desktopiconslayer{
+    width: 100%;
+    height: auto;
+    z-index: 2;
+    position: absolute;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    top: 0px;
+    padding: 20px;
+}
+
+.desktopicon{
+    height: auto;
+    cursor: pointer;
+    display: inline-block;
+    margin:  20px;
+}
+
+.desktopiconimage{
+    width: 64px;
+    height: 64px;
+    background-image: url("../images/folder.png");
+    display: inline-block;
+    padding: 0px;
+    margin: 0px;
+}
+
+.desktopiconmovieplayer{
+    width: 64px;
+    height: 64px;
+    background-image: url("../images/movieplayer.png");
+    display: inline-block;
+    padding: 0px;
+    margin: 0px;
+}
+
+
+.desktopiconname{
+    text-align: center;
+    width: auto;
+}
+
+.windows{
+    z-index:3;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    top: 0px;
+    pointer-events: none;
+}
+
+.newwindow{
+    width: 310px;
+    height: 300px;
+    display: none;
+}
+
+.windowheader{
+    /* display: inline-block; */
+    /* float: left; */
+    height: 20px;
+    width: 100%;
+    margin: 0px;
+    background: #1e5799;/* Old browsers */
+    background: 
+    
+    
+    
+    
+    
+    
+    
+    -moz-linear-gradient(left,  #1e5799 0%, #7db9e8 100%);/* FF3.6+ */
+    background: 
+    
+    
+    
+    
+    
+    
+    
+    -webkit-gradient(linear, left top, right top, color-stop(0%,#1e5799), color-stop(100%,#7db9e8));/* Chrome,Safari4+ */
+    background: 
+    
+    
+    
+    
+    
+    
+    
+    -webkit-linear-gradient(left,  #1e5799 0%,#7db9e8 100%);/* Chrome10+,Safari5.1+ */
+    background: 
+    
+    
+    
+    
+    
+    
+    
+    -o-linear-gradient(left,  #1e5799 0%,#7db9e8 100%);/* Opera 11.10+ */
+    background: 
+    
+    
+    
+    
+    
+    
+    
+    -ms-linear-gradient(left,  #1e5799 0%,#7db9e8 100%);/* IE10+ */
+    background: linear-gradient(to right,  #1e5799 0%,#7db9e8 100%);/* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=1 );/* IE6-9 */
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.window{
+    overflow: hidden;
+    -webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.17);
+    -moz-box-shadow:    7px 7px 5px 0px rgba(50, 50, 50, 0.17);
+    box-shadow:         7px 7px 5px 0px rgba(50, 50, 50, 0.17);
+    pointer-events: all;
+}
+
+.border3d{
+    border: 2px solid #eae5d8;
+    border-style: outset;
+}
+
+.windowheaderbutton{
+    height: 12px;
+    width: 12px;
+    display: inline-block;
+    float: right;
+    margin: 2px;
+    cursor: pointer;
+}
+
+.windowheadertitle{
+    display: inline-block;
+    color: white;
+    padding: 0px;
+    /* margin: 0px; */
+    padding-left: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    pointer-events: none;
+    height: 100%;
+    vertical-align: middle;
+    margin-top: -2px;
+}
+
+.windowheadericon{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url("../images/window.png");
+}
+
+.windowheadericonbox{
+    padding: 2px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.windowcontext{
+    /* display: inline-block; */
+    height: calc(100% - 20px);
+    /* float: left; */
+    width: 100%;
+}
+
+.movementlayer{
+    z-index:9999;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.windowclose{
+    background-image: url("../images/windowclose.png");
+}
+
+.windowminimize{
+    background-image: url("../images/windowminimize.png");
+}
+
+.windowmaximize{
+    background-image: url("../images/windowmaximize.png");
+}
+
+.startbutton{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,2989d8+25,1e5799+51,1e5799+100 */
+    background: #1e5799; /* Old browsers */
+    background: -moz-linear-gradient(top,  #1e5799 0%, #2989d8 25%, #1e5799 51%, #1e5799 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(25%,#2989d8), color-stop(51%,#1e5799), color-stop(100%,#1e5799)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #1e5799 0%,#2989d8 25%,#1e5799 51%,#1e5799 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #1e5799 0%,#2989d8 25%,#1e5799 51%,#1e5799 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #1e5799 0%,#2989d8 25%,#1e5799 51%,#1e5799 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #1e5799 0%,#2989d8 25%,#1e5799 51%,#1e5799 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#1e5799',GradientType=0 ); /* IE6-9 */
+
+    color: white;
+    font-weight: bold;
+    min-width: 150px;
+    display:  inline-block;
+    height:  100%;
+    text-align: center;
+    margin-top:auto;
+    margin-bottom:auto;
+    border-top-right-radius: 15px;
+    cursor: pointer;
+
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition:.5s;
+}
+
+.startmenutext{
+    /* vertical-align: middle; */
+    border-radius:  10px;
+    margin-top:auto;
+    margin-bottom:auto;
+    height:  100%;
+    display : flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.taskbaritemicon{
+    display: inline-block;
+    /* position: absolute; */
+    width: 16px;
+    height: 16px;
+    background-image: url("../images/window.png");
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.splashscreen{
+    width: 768px;
+    height: 316px;
+    background-image: url("../images/splashscreen.png");
+    display: inline-block;
+    z-index: 9999;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    display: none;
+}
+
+/* SECTION: 2. Explorer
+============================================
+*/
+
+.interlace {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: url(../images/interlace.png) top left repeat, rgba(255,255,255,0.5);
+    width: 100%;
+    height: 100%;
+    opacity: 0.05;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.starticon{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url(../images/start.png);
+    margin-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    opacity: 0.5;
+}
+
+.startbutton:hover .starticon { 
+    opacity: 1; 
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition:.5s;
+}
+
+.windowxsize{
+    cursor: w-resize;
+}
+
+.windowysize{
+    cursor: s-resize;
+}
+
+.taskbarnotificationarea{
+    height: 100%;
+    display: inline-block;
+    min-width: 200px;
+    background-color: #ccc;
+    float: right;
+}
+
+.notificationareatime{
+    vertical-align: middle;
+    height:  100%;
+    width: auto;
+    line-height: 50px;
+    text-align: center;
+    opacity: 0.5;
+}
